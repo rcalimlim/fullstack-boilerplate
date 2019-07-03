@@ -1,3 +1,5 @@
+// dotenv must be required as early as possible for env vars to propogate
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
