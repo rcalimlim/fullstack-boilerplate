@@ -1,3 +1,5 @@
+# Rename me to .env!
+
 NODE_ENV=
 
 DB_USER=
