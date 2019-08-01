@@ -1,7 +1,24 @@
-module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+const path = require('path');
 
-  mode: "production",
+module.exports = {
+  devServer: {
+    contentBase: path.join(__dirname, 'client/dist'),
+    compress: true,
+    port: 3000,
+    historyApiFallback: true, // navigation
+  },
+
+  devtool: 'cheap-eval-source-map', // fast build, super fast rebuilds
+
+  performance: {
+    maxEntrypointSize: 10000,
+    maxAssetSize: 10000,
+    hints: false,
+  },
+
+  entry: path.join(__dirname, 'client/src/index.jsx'),
+
+  mode: 'production',
 
   module: {
     rules: [
@@ -11,23 +28,38 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['@babel/preset-env', { modules: false }],
-              '@babel/preset-react',
-            ]
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(html)$/,
+        use: { loader: 'html-loader' },
+      },
+      {
+        test: /\.(png|jpg|gif|jpeg|ttf)$/,
+        use: [
+          { loader: 'file-loader', options: { name: '[path][name].[ext]' } },
+        ],
+      },
+    ],
   },
 
   output: {
-    path: __dirname + '/client/dist',
+    path: path.join(__dirname, 'client/dist'),
     filename: 'bundle.js',
-    publicPath: '/'
-  }
-}
+    publicPath: '/',
+  },
+};

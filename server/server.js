@@ -1,12 +1,11 @@
 // dotenv must be required as early as possible for env vars to propogate
 require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
 const compression = require('compression');
 const cors = require('cors');
-const app = express();
-const port = 3000;
 
+const app = express();
+const port = process.env.SERVER_PORT;
 app.use(compression());
 app.use(cors());
 app.use(express.json());

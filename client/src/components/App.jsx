@@ -1,12 +1,11 @@
 import React from 'react';
+import src from '../pic.jpg';
 
-class App extends React.Component {
-  constructor () {
-    super();
-  }
-  render () {
-    return (<h1>Fix me!</h1>);
-  }
-}
+const App = () => (
+  <>
+    <h1>Fix me!</h1>
+    <img src={src} alt="screenshot" />
+  </>
+);
 
 export default App;
