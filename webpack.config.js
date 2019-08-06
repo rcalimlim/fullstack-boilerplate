@@ -34,15 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: true,
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(html)$/,
