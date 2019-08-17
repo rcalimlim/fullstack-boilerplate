@@ -1,14 +1,14 @@
 # Rename me to .env!
 
-NODE_ENV=
+NODE_ENV='development'
 
 DB_USER=
 DB_PASSWORD=
 DB_NAME=
 DB_URI=
 
-SERVER_HOST=
-SERVER_PORT=
+SERVER_HOST=localhost
+SERVER_PORT=3000
 
 API_HOST=
 API_PORT=

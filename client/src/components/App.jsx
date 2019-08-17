@@ -1,11 +1,5 @@
 import React from 'react';
-import src from '../pic.jpg';
 
-const App = () => (
-  <>
-    <h1>Fix me!</h1>
-    <img src={src} alt="screenshot" />
-  </>
-);
+const App = () => (<h1>Hello world! Fix me!</h1>);
 
 export default App;
